@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Keluarga Tercinta ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif; /* Font modern dan mudah dibaca */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); /* Background gradasi pink/peach */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #4a235a; /* Warna teks ungu gelap */
+            text-align: center;
+            overflow: hidden; /* Penting untuk animasi love */
+            position: relative; /* Penting untuk animasi love */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95); /* Kotak putih transparan */
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            width: 550px; /* Lebar kotak lebih besar */
+            animation: fadeIn 2s ease-out;
+            position: relative; /* Untuk z-index agar di atas love */
+            z-index: 10; /* Pastikan konten di atas love */
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive; /* Font gaya tulisan tangan untuk judul */
+            color: #e74c3c; /* Warna merah hati */
+            font-size: 3em; /* Ukuran judul lebih besar */
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite alternate; /* Animasi detak */
+        }
+
+        .kata-manis {
+            font-size: 1.4em; /* Ukuran font lebih besar agar mudah dibaca */
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #2c3e50;
+            font-weight: 400; /* Pastikan tidak terlalu tebal */
+        }
+
+        .nama-pengirim {
+            font-weight: bold;
+            font-size: 1.5em; /* Ukuran font pengirim lebih besar */
+            color: #8e44ad; /* Warna ungu */
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Animasi lucu dan bagus */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        /* Font Berjalan (Marquee) */
+        .running-text-container {
+            width: 100%;
+            margin-top: 30px;
+            padding: 10px 0;
+            background-color: #f7f3e8; /* Background kuning muda */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10; /* Pastikan di atas love */
+        }
+
+        .running-text {
+            font-size: 1.6em; /* Ukuran font berjalan lebih besar */
+            color: #3498db; /* Warna biru cerah */
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Animasi Love Jatuh */
+        .love {
+            position: absolute;
+            background-color: transparent;
+            font-size: 1.5em; /* Ukuran love */
+            color: #ff69b4; /* Warna pink hati */
+            pointer-events: none; /* Agar tidak mengganggu interaksi mouse */
+            animation: fall linear infinite;
+            opacity: 0;
+            z-index: 5; /* Di bawah konten utama */
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Keluargaku, Harta Tak Ternilai ❤️</h1>
+        
+        <div class="kata-manis">
+            "Tak peduli seberapa jauh kaki ini melangkah, kalianlah alasan terindah untuk selalu pulang. Terima kasih sudah menjadi rumah, tempat hati ini selalu damai dan dicintai tanpa syarat."
+            </div>
+
+        <p class="nama-pengirim">— Dari Raisa, yang sangat menyayangi kalian.</p>
+    </div>
+    
+    <div class="running-text-container">
+        <marquee class="running-text" behavior="scroll" direction="left" scrollamount="8" loop="infinite">
+            💖 Raisa sayang keluarga 🌟 Raisa sayang keluarga 💖 Raisa sayang keluarga 🌟
+        </marquee>
+    </div>
+
+    <script>
+        const colors = ['#ff69b4', '#ffc0cb', '#ffb6c1', '#f08080']; // Pilihan warna pink
+        const hearts = ['💖', '💕', '💗']; // Bentuk love
+
+        function createLove() {
+            const love = document.createElement('div');
+            love.classList.add('love');
+            love.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            love.style.left = Math.random() * 100 + 'vw'; /* Posisi horizontal acak */
+            love.style.animationDuration = Math.random() * 5 + 5 + 's'; /* Durasi jatuh acak */
+            love.style.animationDelay = Math.random() * 0.5 + 's'; /* Delay awal acak */
+            love.style.color = colors[Math.floor(Math.random() * colors.length)]; /* Warna acak */
+            love.style.fontSize = Math.random() * 0.8 + 1 + 'em'; /* Ukuran acak, tidak terlalu besar */
+            document.body.appendChild(love);
+
+            // Hapus love setelah animasi selesai untuk performa
+            love.addEventListener('animationend', () => {
+                love.remove();
+            });
+        }
+
+        setInterval(createLove, 300); // Buat love baru setiap 300ms
+    </script>
+
+</body>
+</html>
